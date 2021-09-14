@@ -124,22 +124,43 @@
     </div>
     <div id="tabSettings" class="hidden tab">
         <div class="count" style="text-align:center; width:90%;"> Settings</div><br>
-        <div style="text-align:center">
-            <table align="center">
-                <tr><td><div class="button setting" onclick="save()"><div>Save Game</div></div></td><td><div class="button setting" onclick="save('Export')"><div>Export</div></div></td><td><div class="button setting" onclick="load('Import')"><div>Import</div></div></td><td><div class="button setting" onclick="reset()"><div>Reset Game</div></div></td></tr>
-                <tr><td><div class="button setting" onclick="flip('fast')"><div>Fast Mode</div><div>Off</div></div></td><td><div class="button setting" onclick="flip('fps')"><div>FPS/UPS</div><div>Off</div></div></td><td><div class="button setting" onclick="flip('notation')"><div>Notation</div><div>Off</div></div></td></tr>
-            </table>
-            <h1>Hot Keys</h1>
-            <p style="font-size:25px">
-                Space: Holds down red <br>
-                R: Max buy red upgrades <br>
-                A: Toggle autobuyers<br>
-                G: Max buy green upgrades<br>
-                1-4: Max buy Blue Upgrades<br>
-                M: Max All
-            </p>
-            <br />
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <div style="text-align:center" class="buttonContainer">
+          <div class="button setting" onclick="save()" id="saveBtn">
+            <span>Save Game</span>
+          </div>
+          <div class="button setting" onclick="save('Export')" id="exportBtn">
+            <span>Export</span>
+          </div>
+          <div class="button setting" onclick="load('Import')" id="importBtn">
+            <span>Import</span>
+          </div>
+          <div class="button setting" onclick="reset()" id="resetBtn">
+            <span>Reset</span>
+          </div>
+          <div class="button setting" onclick="flip('fast')" id="fastBtn">
+            <div>Fast Mode</div>
+            <div id="fastBtnDisplay">Off</div>
+          </div>
+          <div class="button setting" onclick="flip('fps')" id="fpsBtn">
+            <div>FPS/UPS</div>
+            <div id="fpsOptionDisplay"></div>
+          </div>
+          <div class="button setting" onclick="flip('notation')" id="notationBtn">
+            <span>Notation</span>
+            <span id="notationOptionDisplay"></span>
+          </div>
+        </div>
+        <h1>Hot Keys</h1>
+        <p style="font-size:25px">
+          Space: Holds down red <br>
+          R: Max buy red upgrades <br>
+          A: Toggle autobuyers<br>
+          G: Max buy green upgrades<br>
+          1-4: Max buy Blue Upgrades<br>
+          M: Max All
+        </p>
+        <br />
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_s-xclick">
                 <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
                 <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">

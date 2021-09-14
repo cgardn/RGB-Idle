@@ -285,9 +285,9 @@ var render = {
         document.getElementById("spectrumCount").innerHTML = "You have " + formatNum(player.spectrum, 0) + " Spectrum";
     },
     Settings: function () {
-        document.getElementsByClassName("setting")[4].childNodes[1].innerHTML = player.options.fast ? "On" : "Off";
-        document.getElementsByClassName("setting")[5].childNodes[1].innerHTML = player.options.fps;
-        document.getElementsByClassName("setting")[6].childNodes[1].innerHTML = "<b>" + player.options.notation + "</b>";
+        document.getElementById("fastBtnDisplay").innerHTML = player.options.fast ? "On" : "Off";
+        document.getElementById("fpsOptionDisplay").innerHTML = player.options.fps;
+        document.getElementById("notationOptionDisplay").innerHTML = "<b>" + player.options.notation + "</b>";
     },
     Stats: function () {
         var table = document.getElementById("last5");
