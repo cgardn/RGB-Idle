@@ -259,7 +259,7 @@ var render = {
                 for (var j = 0; j < 4; j++) {
                     if (j == 0 && player.progress.includes(7)) document.getElementById(tempKey + "Button" + j).childNodes[1].innerHTML = "Level: " + formatNum(player.level[tempKey][j], 0) + "+" + Math.min(Math.floor(player.spectrumTimer / 360000), 10)
                     else document.getElementById(tempKey + "Button" + j).childNodes[2].innerHTML = "Level: " + formatNum(player.level[tempKey][j], 0);
-                    document.getElementById(tempKey + "Button" + j).childNodes[3].innerHTML = "Price: " + formatNum(price[tempKey][j]) + " " + tempKey;
+                    document.getElementById(tempKey + "Button" + j).childNodes[5].innerHTML = "Price: " + formatNum(price[tempKey][j]) + " " + tempKey;
                     switch (j) {
                         case 0: document.getElementById(tempKey + "Button" + j).childNodes[3].innerHTML = "Current speed: " + formatNum(Clock, 0, "Hz");
                             break
