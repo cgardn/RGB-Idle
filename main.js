@@ -257,7 +257,7 @@ var render = {
             if (tempKey == "blue") {
                 for (var j = 0; j < 4; j++) {
                     if (j == 0 && player.progress.includes(7)) document.getElementById(tempKey + "Button" + j).childNodes[1].innerHTML = "Level: " + formatNum(player.level[tempKey][j], 0) + "+" + Math.min(Math.floor(player.spectrumTimer / 360000), 10)
-                    else document.getElementById(tempKey + "Button" + j).childNodes[1].innerHTML = "Level: " + formatNum(player.level[tempKey][j], 0);
+                    else document.getElementById(tempKey + "Button" + j).childNodes[2].innerHTML = "Level: " + formatNum(player.level[tempKey][j], 0);
                     document.getElementById(tempKey + "Button" + j).childNodes[2].innerHTML = "Price: " + formatNum(price[tempKey][j]) + " " + tempKey;
                     switch (j) {
                         case 0: document.getElementById(tempKey + "Button" + j).childNodes[3].innerHTML = "Current speed: " + formatNum(Clock, 0, "Hz");
@@ -274,7 +274,7 @@ var render = {
                     document.getElementById(tempKey + "Button").childNodes[0].innerHTML = tempKey == "red" ? "Increase Click Strength" : "Increase Auto Strength";
                     document.getElementById(tempKey + "Button").style.width = "";
                     document.getElementById(tempKey + "Button").childNodes[2].innerHTML = "Price: " + formatNum(price[tempKey]) + " " + tempKey;
-                    document.getElementById(tempKey + "Button").childNodes[1].innerHTML = "Level: " + formatNum(player.level[tempKey], 0);
+                    document.getElementById(tempKey + "Button").childNodes[3].innerHTML = "Level: " + formatNum(player.level[tempKey], 0);
             }
         }
         document.getElementById("spectrumCountRGB").innerHTML = formatNum(player.spectrum, 0) + " Spectrum";
@@ -1315,5 +1315,3 @@ function getColorPotency(name,color,prism) {
     }
     return ret;
 }
-
-
