@@ -44,6 +44,23 @@
       <div class="button switch hidden" onclick="switchTab('Stats', 3)">
         Stats
       </div>
+      <!--
+      <div id="toggleABHeader" class="button switch">
+        Toggle AutoBuyers:
+      </div>
+      <div id="toggleABAll" class="button toggle" style="background: lightGrey;">
+        All
+      </div>
+      <div id="toggleABRed" class="button toggle" style="background: red;">
+        Red
+      </div>
+      <div id="toggleABGreen" class="button toggle" style="background: green;">
+        Green
+      </div>
+      <div id="toggleABBlue" class="button toggle" style="background: blue;">
+        Blue
+      </div>
+      -->
       <div id="holdRedBtn" class="button" style="background: red;">
         Hold Red
       </div>
@@ -65,8 +82,8 @@
           onclick="buyUpgrade('red')"
         >
           <div>Increase Click Strength</div>
-          <div id="redBtnLevelDisplay">Level 0</div>
-          <div>Price 5 Red</div>
+          <div class="levelDisplay">Level 0</div>
+          <div class="priceDisplay">Price 5 Red</div>
         </div>
 
         <div 
@@ -89,8 +106,8 @@
           onclick="buyUpgrade('green')"
         >
           <div>Increase Auto Red Speed</div>
-          <div id="greenBtnLevelDisplay">Level 0</div>
-          <div>Price 5 Green</div>
+          <div class="levelDisplay">Level 0</div>
+          <div class="priceDisplay">Price 5 Green</div>
         </div>
         <div
           id="greenReduce"
@@ -124,8 +141,8 @@
       onclick="buyUpgrade('blue', 0)"
     >
       <div>Increase Clock Speed</div>
-      <div>Level 0</div>
-      <div>Price 5 blue</div>
+      <div id="blueBtnLevelDisplay">Level 0</div>
+      <div id="blueBtnPriceDisplay">Price 5 blue</div>
       <div></div>
     </div>
     <div
@@ -135,8 +152,8 @@
       onclick="buyUpgrade('blue', 1)"
     >
       <div>Increase Red Bar Gain</div>
-      <div>Level 0</div>
-      <div>Price 10 blue</div>
+      <div class="levelDisplay">Level 0</div>
+      <div class="priceDisplay">Price 10 blue</div>
       <div></div>
     </div>
     <div

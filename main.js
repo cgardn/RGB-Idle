@@ -259,7 +259,7 @@ var render = {
                 for (var j = 0; j < 4; j++) {
                     if (j == 0 && player.progress.includes(7)) document.getElementById(tempKey + "Button" + j).childNodes[1].innerHTML = "Level: " + formatNum(player.level[tempKey][j], 0) + "+" + Math.min(Math.floor(player.spectrumTimer / 360000), 10)
                     else document.getElementById(tempKey + "Button" + j).childNodes[2].innerHTML = "Level: " + formatNum(player.level[tempKey][j], 0);
-                    document.getElementById(tempKey + "Button" + j).childNodes[2].innerHTML = "Price: " + formatNum(price[tempKey][j]) + " " + tempKey;
+                    document.getElementById(tempKey + "Button" + j).childNodes[3].innerHTML = "Price: " + formatNum(price[tempKey][j]) + " " + tempKey;
                     switch (j) {
                         case 0: document.getElementById(tempKey + "Button" + j).childNodes[3].innerHTML = "Current speed: " + formatNum(Clock, 0, "Hz");
                             break
@@ -272,10 +272,10 @@ var render = {
                     }
                 }
             } else {
-                    document.getElementById(tempKey + "Button").childNodes[0].innerHTML = tempKey == "red" ? "Increase Click Strength" : "Increase Auto Strength";
-                    document.getElementById(tempKey + "Button").style.width = "";
-                    document.getElementById(tempKey + "Button").childNodes[2].innerHTML = "Price: " + formatNum(price[tempKey]) + " " + tempKey;
-                    document.getElementById(tempKey + "Button").childNodes[3].innerHTML = "Level: " + formatNum(player.level[tempKey], 0);
+              document.getElementById(tempKey + "Button").childNodes[0].innerHTML = tempKey == "red" ? "Increase Click Strength" : "Increase Auto Strength";
+              document.getElementById(tempKey + "Button").style.width = "";
+              document.querySelector(`#${tempKey}` + "Button > .priceDisplay").innerHTML = "Price: " + formatNum(price[tempKey]) + " " + tempKey;
+              document.querySelector(`#${tempKey}` + "Button > .levelDisplay").innerHTML = "Level: " + formatNum(player.level[tempKey], 0);
             }
         }
         document.getElementById("spectrumCountRGB").innerHTML = formatNum(player.spectrum, 0) + " Spectrum";
@@ -1202,7 +1202,10 @@ window.addEventListener("keyup", function (event) {
 
 function setupEvents() {
   let redBtn = document.getElementById('holdRedBtn')
-  console.log(redBtn)
+  let toggleAutoAll = document.getElementById('toggleABAll')
+  let toggleAutoRed = document.getElementById('toggleABRed')
+  let toggleAutoGreen = document.getElementById('toggleABBlue')
+  let toggleAutoBlue = document.getElementById('toggleABGreen') 
   if (redBtn) {
     redBtn.addEventListener('touchstart', function(ev) {
       press("red", 1)
@@ -1215,6 +1218,38 @@ function setupEvents() {
     })
     redBtn.addEventListener('mouseup', function(ev) {
       press("red", 0)
+    })
+  }
+  if (toggleAutoAll) {
+    toggleAutoAll.addEventListener('mouseup', function(ev) {
+      ToggleAB("all");
+    })
+    toggleAutoAll.addEventListener('touchend', function(ev) {
+      ToggleAB("all");
+    })
+  }
+  if (toggleAutoRed) {
+    toggleAutoRed.addEventListener('mouseup', function(ev) {
+      ToggleAB("red");
+    })
+    toggleAutoRed.addEventListener('touchend', function(ev) {
+      ToggleAB("red");
+    })
+  }
+  if (toggleAutoGreen) {
+    toggleAutoGreen.addEventListener('mouseup', function(ev) {
+      ToggleAB("green");
+    })
+    toggleAutoGreen.addEventListener('touchend', function(ev) {
+      ToggleAB("green");
+    })
+  }
+  if (toggleAutoBlue) {
+    toggleAutoBlue.addEventListener('mouseup', function(ev) {
+      ToggleAB("blue");
+    })
+    toggleAutoBlue.addEventListener('touchend', function(ev) {
+      ToggleAB("blue");
     })
   }
 }

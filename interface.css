@@ -56,8 +56,8 @@
 
 .button.switch {
     text-align: center;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .button.switch.active {
@@ -178,8 +178,17 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+#toggleABHeader {
+  margin-left: auto;
+  width: auto;
+}
 #holdRedBtn {
   margin-left: auto;
+  width: auto;
+  padding: 20px 10px;
+}
+.button.toggle {
+  margin-left: 5px;
   width: auto;
   padding: 20px 10px;
 }
@@ -206,7 +215,7 @@
     }
 
     .button.switch {
-        width:15%;
+        width: auto;
     }
 }
 @media screen and (max-width: 1400px) {
