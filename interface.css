@@ -29,6 +29,9 @@
     font-family: Verdana;
 }
 
+.settingsHeader {
+  font-size: 2.5em;
+}
 .count {
     margin: auto 25px;
     font-size:90px;
