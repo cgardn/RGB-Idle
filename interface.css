@@ -11,6 +11,10 @@
 .whiteline {
     text-shadow: 0.5px 0.5px 0 #acacac, -0.5px 0.5px 0 #acacac, 0.5px -0.5px 0 #acacac, -0.5px -0.5px 0 #acacac, 0px 0.5px 0 #acacac, 0px -0.5px 0 #acacac, -0.5px 0px 0 #acacac, 0.5px 0px 0 #acacac, 1px 1px 0 #acacac, -1px 1px 0 #acacac, 1px -1px 0 #acacac, -1px -1px 0 #acacac, 0px 1px 0 #acacac, 0px -1px 0 #acacac, -1px 0px 0 #acacac, 1px 0px 0 #acacac, 0.5px 1px 0 #acacac, -0.5px 1px 0 #acacac, 0.5px -1px 0 #acacac, -0.5px -1px 0 #acacac, 1px 0.5px 0 #acacac, -1px 0.5px 0 #acacac, 1px -0.5px 0 #acacac, -1px -0.5px 0 #acacac;
 }
+.barContainer {
+  display: flex;
+  padding: 10px 0;
+}
 .progress {
     background: #D3D3D3;
     width: 50%;
@@ -19,21 +23,17 @@
 
 .progress .bar {
     width: 100%;
-    height: 90px;
+    height: 100%;
     text-align: center;
-    font:bold;
     font-size: 90px;
-    padding-bottom:15px;
     font-family: Verdana;
 }
 
 .count {
-    margin-left: 25px;
-    margin-right: 25px;
+    margin: auto 25px;
     font-size:90px;
     display: inline-block;
     font-family: Verdana;
-    width: 360px;
 }
 
 .count.extra {
@@ -173,9 +173,7 @@
 
 @media screen and (max-width: 1660px) {
     .progress .bar {
-        height: 75px;
         font-size: 65px;
-        padding-bottom: 10px;
     }  
   
     .count {
@@ -201,11 +199,8 @@
 @media screen and (max-width: 1400px) {
     .progress .bar {
         width: 100%;
-        height: 50px;
         text-align: center;
-        font: bold;
         font-size: 45px;
-        padding-bottom: 10px;
         font-family: Verdana;
      }
 
