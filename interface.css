@@ -165,10 +165,23 @@
     z-index: 1;
 }
 
+.tabSwitchContainer {
+  display: flex;
+  margin-bottom: 10px;
+  vertical-align: middle;
+}
+.tabSwitchContainer > div {
+  margin: auto 5px;
+}
 .buttonContainer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+#holdRedBtn {
+  margin-left: auto;
+  width: auto;
+  padding: 20px 10px;
 }
 
 @media screen and (max-width: 1660px) {

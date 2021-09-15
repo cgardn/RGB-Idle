@@ -84,6 +84,7 @@ function init() {
     window.mainLoop = setInterval(gameLoop, 1000 / player.options.fps);
     window.ABLoop = setInterval(autoBuyer, 10);
     window.ABcount = 0;
+    setupEvents();
 }
 
 function autoBuyer() {
@@ -1198,6 +1199,25 @@ window.addEventListener("keyup", function (event) {
         press("red", 0)
     }
 }, false)
+
+function setupEvents() {
+  let redBtn = document.getElementById('holdRedBtn')
+  console.log(redBtn)
+  if (redBtn) {
+    redBtn.addEventListener('touchstart', function(ev) {
+      press("red", 1)
+    })
+    redBtn.addEventListener('mousedown', function(ev) {
+      press("red", 1)
+    })
+    redBtn.addEventListener('touchend', function(ev) {
+      press("red", 0)
+    })
+    redBtn.addEventListener('mouseup', function(ev) {
+      press("red", 0)
+    })
+  }
+}
 
 function simulateTime(time) {
     console.log("You were offline for " + formatTime(time));

@@ -33,17 +33,21 @@
     <div class="popup" style="font-size:1.5em">
       You have finished a progress!
     </div>
-    <div class="button switch active" onclick="switchTab('RGB', 0)">RGB</div>
-    <div class="button hidden switch" onclick="switchTab('Spectrum', 1)">
-      Spectrum
+    <div class="tabSwitchContainer">
+      <div class="button switch active" onclick="switchTab('RGB', 0)">RGB</div>
+      <div class="button hidden switch" onclick="switchTab('Spectrum', 1)">
+        Spectrum
+      </div>
+      <div class="button switch" onclick="switchTab('Settings', 2)">
+        Settings
+      </div>
+      <div class="button switch hidden" onclick="switchTab('Stats', 3)">
+        Stats
+      </div>
+      <div id="holdRedBtn" class="button" style="background: red;">
+        Hold Red
+      </div>
     </div>
-    <div class="button switch" onclick="switchTab('Settings', 2)">
-      Settings
-    </div>
-    <div class="button switch hidden" onclick="switchTab('Stats', 3)">
-      Stats
-    </div>
-    <br>
     <div id="tabRGB" class="tab">
       <div style="width:100%;">
         <div class="count hidden extra" id="spectrumCountRGB"></div>
