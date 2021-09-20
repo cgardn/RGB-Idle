@@ -229,10 +229,17 @@ var render = {
     },
     Upgrades : function(){
         for (var i = 0; i < player.spectrumLevel.length ; i++) {
-            if (i != 5 && i != 4 && i != 9) document.getElementById("spectrumButton" + i).childNodes[1].innerHTML = SUInfo(i);
+            if (i != 5 && i != 4 && i != 9) {
+              document.querySelector(`#spectrumButton${i} > .upgradeLabel`)[0].innerHTML = SUInfo(i);
+              //document.getElementById("spectrumButton" + i).childNodes[1].innerHTML = SUInfo(i);
+            }
+            document.querySelector(`#spectrumButton${i} > .priceDisplay`)[0].innerHTML = "Price: " + formatNum(SpecPrice[i], 0) + " Spectrum ";
             document.getElementById("spectrumButton" + i).childNodes[2].innerHTML = "Price: " + formatNum(SpecPrice[i], 0) + " Spectrum ";
-            if (player.spectrumLevel[i] == 1) document.getElementById("spectrumButton" + i).classList.add("bought");
-            else document.getElementById("spectrumButton" + i).classList.remove("bought");
+            if (player.spectrumLevel[i] == 1) {
+              document.getElementById("spectrumButton" + i).classList.add("bought");
+            } else {
+              document.getElementById("spectrumButton" + i).classList.remove("bought");
+            }
         }
     },
     RGB : function () {

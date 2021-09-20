@@ -48,9 +48,6 @@
       <div id="toggleABHeader" class="button switch">
         Toggle AutoBuyers:
       </div>
-      <div id="toggleABAll" class="button toggle" style="background: lightGrey;">
-        All
-      </div>
       <div id="toggleABRed" class="button toggle" style="background: red;">
         Red
       </div>
@@ -121,7 +118,7 @@
         class="hidden button"
         onclick="unlockBlue()"
         style="background:rgb(0,0,255); font-size:40px"
-      >Buy Blue bar for 50 green!</div>
+      >Buy Blue bar for 50 green!<br></div>
       <div
         id="blueDiv"
         class="hidden barContainer"
@@ -278,9 +275,9 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 0)"
            > 
-             <div>Click Multi Effects Auto</div>
-             <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="upgradeLabel">Click Multi Effects Auto</div>
+             <div class="boughtState">Not Bought</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -290,9 +287,9 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 1)"
            >
-             <div>Double Output of All Bars</div>
-             <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="upgradeLabel">Double Output of All Bars</div>
+             <div class="boughtState">Not Bought</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -303,8 +300,8 @@
              onclick="buyUpgrade('spectrum', 2)"
            >
              <div>Double Bar Gain (R&G)</div>
-             <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="upgradeLabel">Not Bought</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -316,9 +313,9 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 3)"
            >
-             <div>Click Multi only Resets on Spectrum</div>
+             <div class="upgradeLabel">Click Multi only Resets on Spectrum</div>
              <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -328,9 +325,9 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 4)"
            >
-             <div>Auto Buy Max Red Level Every 2s</div>
+             <div class="upgradeLabel">Auto Buy Max Red Level Every 2s</div>
              <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -340,9 +337,9 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 5)"
            >
-             <div>Auto Buy Max Green Level Every 2s</div>
+             <div class="upgradeLabel">Auto Buy Max Green Level Every 2s</div>
              <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -354,9 +351,9 @@
              class="button spec" 
              onclick="buyUpgrade('spectrum', 6)"
            >
-             <div>Start with Blue Unlocked</div>
+             <div class="upgradeLabel">Start with Blue Unlocked</div>
              <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -365,9 +362,9 @@
              id="spectrumButton7"
              class="button spec"
              onclick="buyUpgrade('spectrum', 7)">
-               <div>Bar Gain Upgrades Scale per 10</div>
+               <div class="upgradeLabel">Bar Gain Upgrades Scale per 10</div>
                <div>Not Bought</div>
-               <div>Price 5 Spectrum</div>
+               <div class="priceDisplay">Price 5 Spectrum</div>
                <div></div>
            </div>
          </td>
@@ -377,9 +374,9 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 8)"
             >
-             <div>Increase Bonus per 10</div>
+             <div class="upgradeLabel">Increase Bonus per 10</div>
              <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -391,9 +388,9 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 9)"
            >
-             <div>Auto Buy Max Blue Upgrades Every 2s</div>
+             <div class="upgradeLabel">Auto Buy Max Blue Upgrades Every 2s</div>
              <div>Not bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -403,9 +400,9 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 10)"
            >
-             <div>Decrease Price Scaling (R&G)</div>
+             <div class="upgradeLabel">Decrease Price Scaling (R&G)</div>
              <div>Not bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -415,9 +412,9 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 11)"
            >
-             <div>Auto Bonus Based on Red Lvl</div>
+             <div class="upgradeLabel">Auto Bonus Based on Red Lvl</div>
              <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -428,9 +425,9 @@
              id="spectrumButton12"
              class="button spec"
              onclick="buyUpgrade('spectrum', 12)">
-             <div>Auto Bonus Based on Spectrum</div>
+             <div class="upgradeLabel">Auto Bonus Based on Spectrum</div>
              <div>Not bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -440,9 +437,9 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 13)"
            >
-             <div>Better Spectrum Gain Formula</div>
+             <div class="upgradeLabel">Better Spectrum Gain Formula</div>
              <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -452,9 +449,9 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 14)"
            >
-             <div>Switch to GPU Rendering</div>
+             <div class="upgradeLabel">Switch to GPU Rendering</div>
              <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -465,9 +462,9 @@
              id="spectrumButton15"
              class="button spec"
              onclick="buyUpgrade('spectrum', 15)">
-             <div>Your Prism can Create Spectrum Bars</div>
+             <div class="upgradeLabel">Your Prism can Create Spectrum Bars</div>
              <div>Not bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -477,9 +474,9 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 16)"
            >
-             <div>Increase Blue = Product of Increase R&G</div>
+             <div class="upgradeLabel">Increase Blue = Product of Increase R&G</div>
              <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -489,11 +486,11 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 17)"
            >
-             <div>
+             <div class="upgradeLabel">
                Price Reduction for First 3 Blue Upgrades Based on R&G Lvls
              </div>
              <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -505,12 +502,12 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 18)"
            >
-             <div>
+             <div class="upgradeLabel">
                Potencies Effect on Black Bars is Massively Increased Every 7 
                Potency
              </div>
              <div>Not bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -520,11 +517,11 @@
              class="button spec"
              onclick="buyUpgrade('spectrum', 19)"
            >
-             <div>
+             <div class="upgradeLabel">
                Adv. Spec Gain is Squared for Spectrum and Cubed for Specced
              </div>
              <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>
@@ -533,12 +530,12 @@
              id="spectrumButton20"
              class="button spec"
              onclick="buyUpgrade('spectrum', 20)">
-             <div>
+             <div class="upgradeLabel">
                Black Will be Used to Purchase Red and Green Upgrades When 
                Needed
              </div>
              <div>Not Bought</div>
-             <div>Price 5 Spectrum</div>
+             <div class="priceDisplay">Price 5 Spectrum</div>
              <div></div>
            </div>
          </td>

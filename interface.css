@@ -264,10 +264,4 @@
         font: 30px bold;
         font-family: Verdana;
     }
-
-    .button.spec.bought {
-        border: double thick;
-        border-width: 5px;
-        border-color: forestgreen;
-    } 
 }
