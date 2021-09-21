@@ -73,11 +73,16 @@
 
 .button.spec {
     background: rgb(0,0,0);
-    width: 400px;
-    height:150px;
+    min-width: 200px;
+    min-height: 100px;
     margin: 10px;
-    font: 30px bold;
+    font: 15px bold;
     font-family: Verdana;
+    display: flex;
+    flex-direction: column;
+}
+.button.spec > .boughtState {
+  margin-top: auto;
 }
 
 .button.setting {
@@ -271,14 +276,5 @@
         display: inline-block;
         font-family: Verdana;
         cursor: pointer;
-    }
-
-    .button.spec {
-        background: rgb(0,0,0);
-        width: 400px;
-        height: 150px;
-        margin: 10px;
-        font: 30px bold;
-        font-family: Verdana;
     }
 }

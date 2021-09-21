@@ -47,6 +47,26 @@ var SR = 0;
 var SR5 = 0;
 var SpecPrice = [1, 1, 3, 5, 5, 7, 10, 30, 50, 75, 300, 500, 1500, 2500, 25000, 100000, 1e10, 1e13, 1e25, 1e35, 1e50];
 
+function setupSpectrumUpgrades() {
+  let els = document.getElementsByClassName('button spec')
+
+  Object.keys(els).forEach((idx) => {
+    let label = els[idx].getElementsByClassName('upgradeLabel')
+    let price = els[idx].getElementsByClassName('priceDisplay')
+    let boughtState = els[idx].getElementsByClassName('boughtState')[0]
+    if (idx != 5 && idx != 4 && idx != 9) {
+      label.innerHTML = SUInfo(idx)
+    }
+    price.innerHTML="Price: " + formatNum(SpecPrice[idx],0) + " Spectrum "
+    if (player.spectrumLevel[idx] == 1) {
+      els[idx].classList.add("bought")
+      boughtState.innerHTML = "Bought"
+    } else {
+      els[idx].classList.remove("bought")
+    }
+  })
+}
+
 function bar(n,r,g,b,elemid) {
     this.name = n;
     this.color = [r, g, b];
@@ -78,13 +98,22 @@ function bar(n,r,g,b,elemid) {
 
 function init() {
     resetplayer = Object.assign({version:v},player);
+    
+    // loading saved data happens here, anything that depends on save data
+    //   must come after setupPlayer()
     setupPlayer();
-    for (var i = 0; i < Object.keys(player.bars).length ; i++) player.bars[Object.keys(player.bars)[i]].draw();
+    setupEvents();
+    setupSpectrumUpgrades()
+
+    for (var i = 0; i < Object.keys(player.bars).length ; i++) {
+      player.bars[Object.keys(player.bars)[i]].draw();
+    }
+
     setInterval(save, 3000);
     window.mainLoop = setInterval(gameLoop, 1000 / player.options.fps);
     window.ABLoop = setInterval(autoBuyer, 10);
     window.ABcount = 0;
-    setupEvents();
+
 }
 
 function autoBuyer() {
@@ -121,7 +150,6 @@ function gameLoop() {
         document.getElementById("newupgrades").classList.add('hidden');
     } 
     render[tab]();
-    if (tab == "Spectrum") render[subtab.spectrum]();
 }
 
 function incomeBarDisplay(name) {
@@ -227,21 +255,28 @@ var render = {
         if (player.prism.active) document.getElementById("mixButton").innerHTML = "Create a New Color Mix<br>This will cost: " + formatNum(mixCost, 2) + " Blackness";
         else document.getElementById("mixButton").innerHTML = "Activate the Prism and Embrace its Power!";
     },
+  /*
     Upgrades : function(){
         for (var i = 0; i < player.spectrumLevel.length ; i++) {
-            if (i != 5 && i != 4 && i != 9) {
-              document.querySelector(`#spectrumButton${i} > .upgradeLabel`).innerHTML = SUInfo(i);
-              //document.getElementById("spectrumButton" + i).childNodes[1].innerHTML = SUInfo(i);
-            }
-            document.querySelector(`#spectrumButton${i} > .priceDisplay`).innerHTML = "Price: " + formatNum(SpecPrice[i], 0) + " Spectrum ";
-            //document.getElementById("spectrumButton" + i).childNodes[2].innerHTML = "Price: " + formatNum(SpecPrice[i], 0) + " Spectrum ";
-            if (player.spectrumLevel[i] == 1) {
-              document.getElementById("spectrumButton" + i).classList.add("bought");
-            } else {
-              document.getElementById("spectrumButton" + i).classList.remove("bought");
+          let el = document.getElementById(`spectrumButton${i}`)
+          if (el === undefined) continue
+          let label = el.getElementsByClassName('upgradeLabel')
+          let price = el.getElementsByClassName('priceDisplay')
+          let boughtState = el.getElementsByClassName('boughtState')[0]
+
+          if (i != 5 && i != 4 && i != 9) {
+            label.innerHTML = SUInfo(i)
+          }
+          price.innerHTML="Price: " + formatNum(SpecPrice[i],0) + " Spectrum "
+          if (player.spectrumLevel[i] == 1) {
+            el.classList.add("bought")
+            boughtState.innerHTML = "Bought"
+          } else {
+            el.classList.remove("bought")
             }
         }
     },
+    */
     RGB : function () {
         for (var i = 0; i < Object.keys(player.money).length; i++) {
             var tempKey = Object.keys(player.money)[i];
@@ -604,11 +639,12 @@ function buyUpgrade(name, Bindex) {
                 document.getElementById('blueDiv').classList.remove('hidden');
             }
             if (Bindex === 5 || Bindex === 4 || Bindex === 9) {
-                document.getElementById("spectrumButton" + Bindex).childNodes[1].innerHTML = SUInfo(Bindex);
+              document.querySelector(`#spectrumButton${Bindex} > .upgradeLabel`).innerHTML = SUInfo(Bindex);
             }
             player.spectrum = Log.sub(player.spectrum, SpecPrice[Bindex]);
             player.spectrumLevel[Bindex]++;
             updateStats();
+            setupSpectrumUpgrades()
             return true;
         }
     } else if (name == "blue") {
@@ -618,6 +654,7 @@ function buyUpgrade(name, Bindex) {
             player.level[name][Bindex]++;
             updateStats();
             if (Bindex == 3 && player.progress.includes(6)) CalcSRgain();
+            setupSpectrumUpgrades()
             return true;
         }
     } else {
@@ -632,6 +669,7 @@ function buyUpgrade(name, Bindex) {
             player.level[name]++;
             updateStats();
             if (player.level[name] % 100 === 0) CalcSRgain();
+            setupSpectrumUpgrades()
             return true;
         }
     }
@@ -893,9 +931,9 @@ function setupPlayer() {
         document.getElementById("advSpectrumReset").childNodes[1].childNodes[0].value = player.advSpec.multi;
         updateStats();
         CalcSRgain();
-        document.getElementById("spectrumButton" + 4).childNodes[1].innerHTML = SUInfo(4);
-        document.getElementById("spectrumButton" + 5).childNodes[1].innerHTML = SUInfo(5);
-        document.getElementById("spectrumButton" + 9).childNodes[1].innerHTML = SUInfo(9);
+        document.querySelector(`#spectrumButton4 > .upgradeLabel`).innerHTML = SUInfo(4);
+        document.querySelector(`#spectrumButton5 > .upgradeLabel`).innerHTML = SUInfo(5);
+        document.querySelector(`#spectrumButton9 > .upgradeLabel`).innerHTML = SUInfo(9);
         document.getElementById("spectrumButton" + 4).childNodes[0].innerHTML = "Auto Buy Max Red Level Every " + formatNum(2 / (player.progress.includes(4) ? 8 : 1)) + "s";
         document.getElementById("spectrumButton" + 5).childNodes[0].innerHTML = "Auto Buy Max Green Level Every " + formatNum(2 / (player.progress.includes(4) ? 8 : 1)) + "s";
         document.getElementById("spectrumButton" + 9).childNodes[0].innerHTML = "Auto Buy Max Blue Upgrades Every " + formatNum(2 / (player.progress.includes(4) ? 8 : 1)) + "s";
@@ -1134,9 +1172,9 @@ function ToggleAB(name){
         player.AB.green = !player.AB.green;
         player.AB.blue = !player.AB.blue;
     } else player.AB[name] = !player.AB[name];
-    document.getElementById("spectrumButton" + 4).childNodes[1].innerHTML = SUInfo(4);
-    document.getElementById("spectrumButton" + 5).childNodes[1].innerHTML = SUInfo(5);
-    document.getElementById("spectrumButton" + 9).childNodes[1].innerHTML = SUInfo(9);
+        document.querySelector(`#spectrumButton4 > .upgradeLabel`).innerHTML = SUInfo(4);
+        document.querySelector(`#spectrumButton5 > .upgradeLabel`).innerHTML = SUInfo(5);
+        document.querySelector(`#spectrumButton9 > .upgradeLabel`).innerHTML = SUInfo(9);
 }
 
 function pop(num) {
