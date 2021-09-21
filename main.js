@@ -51,8 +51,8 @@ function setupSpectrumUpgrades() {
   let els = document.getElementsByClassName('button spec')
 
   Object.keys(els).forEach((idx) => {
-    let label = els[idx].getElementsByClassName('upgradeLabel')
-    let price = els[idx].getElementsByClassName('priceDisplay')
+    let label = els[idx].getElementsByClassName('upgradeLabel')[0]
+    let price = els[idx].getElementsByClassName('priceDisplay')[0]
     let boughtState = els[idx].getElementsByClassName('boughtState')[0]
     if (idx != 5 && idx != 4 && idx != 9) {
       label.innerHTML = SUInfo(idx)
@@ -255,28 +255,6 @@ var render = {
         if (player.prism.active) document.getElementById("mixButton").innerHTML = "Create a New Color Mix<br>This will cost: " + formatNum(mixCost, 2) + " Blackness";
         else document.getElementById("mixButton").innerHTML = "Activate the Prism and Embrace its Power!";
     },
-  /*
-    Upgrades : function(){
-        for (var i = 0; i < player.spectrumLevel.length ; i++) {
-          let el = document.getElementById(`spectrumButton${i}`)
-          if (el === undefined) continue
-          let label = el.getElementsByClassName('upgradeLabel')
-          let price = el.getElementsByClassName('priceDisplay')
-          let boughtState = el.getElementsByClassName('boughtState')[0]
-
-          if (i != 5 && i != 4 && i != 9) {
-            label.innerHTML = SUInfo(i)
-          }
-          price.innerHTML="Price: " + formatNum(SpecPrice[i],0) + " Spectrum "
-          if (player.spectrumLevel[i] == 1) {
-            el.classList.add("bought")
-            boughtState.innerHTML = "Bought"
-          } else {
-            el.classList.remove("bought")
-            }
-        }
-    },
-    */
     RGB : function () {
         for (var i = 0; i < Object.keys(player.money).length; i++) {
             var tempKey = Object.keys(player.money)[i];
